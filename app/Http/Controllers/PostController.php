@@ -15,6 +15,9 @@ class PostController extends Controller
     public function __construct(PostService $service)
     {
         $this->service = $service;
+
+        $this->middleware('auth:sanctum');
+        $this->middleware('admin')->only('destroy');
     }
 
     // =============================
